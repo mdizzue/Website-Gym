@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Packages</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #171515;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            padding-top: 120px; /* Untuk memberi ruang bagi header tetap */
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #171515;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            z-index: 10;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a.active {
+            color: #ff914d;
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 50px;
+            color: #ff914d;
+        }
+
+        .package-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .package {
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .package img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .package:hover {
+            transform: scale(1.05);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            color: #333;
+        }
+
+        .modal-header {
+            font-size: 2em;
+            color: #ff914d;
+        }
+
+        .modal-close {
+            font-size: 1.5em;
+            color: #ff914d;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .modal-close:hover {
+            color: #ff5733;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="lg2.png" alt="World Gym Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Package.html" class="active">Package</a></li>
+                <li><a href="Equipment.html">Equipment</a></li>
+                <li><a href="Contact Us.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content for Packages -->
+    <div>
+        <h1>Our Gym Packages</h1>
+
+        <div class="package-container">
+            <!-- Package A -->
+            <div class="package" onclick="openModal('packageA')">
+                <img src="packageA.jpg" alt="Package A">
+            </div>
+
+            <!-- Package B -->
+            <div class="package" onclick="openModal('packageB')">
+                <img src="packageB.jpg" alt="Package B">
+            </div>
+
+            <!-- Package C -->
+            <div class="package" onclick="openModal('packageC')">
+                <img src="packageC.jpg" alt="Package C">
+            </div>
+
+            <!-- Package D -->
+            <div class="package" onclick="openModal('packageD')">
+                <img src="packageD.jpg" alt="Package D">
+            </div>
+        </div>
+
+        <!-- Modal for Package A -->
+        <div id="packageA" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('packageA')">&times;</button>
+                <div class="modal-header">Package A</div>
+                <p>This is the description of Package A. Includes gym access, personal training, and more!</p>
+            </div>
+        </div>
+
+        <!-- Modal for Package B -->
+        <div id="packageB" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('packageB')">&times;</button>
+                <div class="modal-header">Package B</div>
+                <p>This is the description of Package B. Includes gym access, group classes, and more!</p>
+            </div>
+        </div>
+
+        <!-- Modal for Package C -->
+        <div id="packageC" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('packageC')">&times;</button>
+                <div class="modal-header">Package C</div>
+                <p>This is the description of Package C. Includes gym access, diet plans, and more!</p>
+            </div>
+        </div>
+
+        <!-- Modal for Package D -->
+        <div id="packageD" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('packageD')">&times;</button>
+                <div class="modal-header">Package D</div>
+                <p>This is the description of Package D. Includes gym access, personal training, and more!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(packageId) {
+            document.getElementById(packageId).style.display = "block";
+        }
+
+        function closeModal(packageId) {
+            document.getElementById(packageId).style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
